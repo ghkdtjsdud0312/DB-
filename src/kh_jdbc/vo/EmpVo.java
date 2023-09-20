@@ -2,7 +2,7 @@ package kh_jdbc.vo;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-
+// VO : Value Object
 public class EmpVo {
     private int empVo;
     private String name;
