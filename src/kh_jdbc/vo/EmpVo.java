@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 // VO : Value Object
 public class EmpVo {
-    private int empVo;
+    private int empNo;
     private String name;
     private String job;
     private int mgr;
@@ -13,8 +13,8 @@ public class EmpVo {
     private BigDecimal comm;
     private int deptNo;
 
-    public EmpVo(int empVo, String name, String job, int mgr, Date date, BigDecimal sal, BigDecimal comm, int deptNo) {
-        this.empVo = empVo;
+    public EmpVo(int empNo, String name, String job, int mgr, Date date, BigDecimal sal, BigDecimal comm, int deptNo) {
+        this.empNo = empNo;
         this.name = name;
         this.job = job;
         this.mgr = mgr;
@@ -24,12 +24,12 @@ public class EmpVo {
         this.deptNo = deptNo;
     }
 
-    public int getEmpVo() {
-        return empVo;
+    public int getEmpNo() {
+        return empNo;
     }
 
-    public void setEmpVo(int empVo) {
-        this.empVo = empVo;
+    public void setEmpNo(int empNo) {
+        this.empNo = empNo;
     }
 
     public String getName() {
