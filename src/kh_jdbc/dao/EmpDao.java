@@ -44,6 +44,45 @@ public class EmpDao {
         }
         return list;
     }
+    public void empInsert() {
+        System.out.println("사원 정보를 입력 하세요 : ");
+        System.out.print("사원번호 : ");
+        int no = sc.nextInt();
+        System.out.print("이름 : ");
+        String name = sc.next();
+        System.out.print("직책 : ");
+        String job = sc.next();
+        System.out.print("상관 : ");
+        int mgr = sc.nextInt();
+        String date = sc.next();
+        System.out.print("급여 : ");
+        BigDecimal sal = sc.nextBigDecimal();
+        System.out.print("성과급 : ");
+        BigDecimal comm = sc.nextBigDecimal();
+        System.out.print("부서번호 : ");
+        int deptNo = sc.nextInt();
+
+        // 쿼리문
+        String sql = "INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES(?,?,?,?,?,?,?,?)";
+        try{
+            conn = Common.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, no);
+            pstmt.setString(2, name);
+            pstmt.setString(3, job);
+            pstmt.setInt(4, mgr);
+            pstmt.setString(5, date);
+            pstmt.setBigDecimal(6, sal);
+            pstmt.setBigDecimal(7, comm);
+            pstmt.setInt(8,deptNo);
+            int rst = pstmt.executeUpdate(); // 실행 결과가 정수 값으로 반환 됨
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        Common.close(pstmt);
+        Common.close(conn);
+    }
 
     public void empSelectPrint(List<EmpVo> list) {
         for (EmpVo e : list) {
