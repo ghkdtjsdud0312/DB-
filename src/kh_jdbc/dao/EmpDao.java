@@ -45,7 +45,7 @@ public class EmpDao {
         return list;
     }
     public void empInsert() {
-        System.out.println("사원 정보를 입력 하세요 : ");
+        System.out.println("사원 정보를 입력 하세요.");
         System.out.print("사원번호 : ");
         int no = sc.nextInt();
         System.out.print("이름 : ");
@@ -54,6 +54,7 @@ public class EmpDao {
         String job = sc.next();
         System.out.print("상관 : ");
         int mgr = sc.nextInt();
+        System.out.print("입사일 : ");
         String date = sc.next();
         System.out.print("급여 : ");
         BigDecimal sal = sc.nextBigDecimal();
@@ -75,7 +76,7 @@ public class EmpDao {
             pstmt.setBigDecimal(6, sal);
             pstmt.setBigDecimal(7, comm);
             pstmt.setInt(8,deptNo);
-            int rst = pstmt.executeUpdate(); // 실행 결과가 정수 값으로 반환 됨
+            int rst = pstmt.executeUpdate(); // 실행 결과가 정수 값으로 반환 됨(영향을 받은 행의 개수가 반환 됨)
 
         }catch (Exception e) {
             e.printStackTrace();
